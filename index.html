@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostafa Subhani - Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43f1 50%, #2c53644f 100%) fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+            position: relative;
+        }
+
+        @media only screen and (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) fixed;
+            }
+        }
+
+        header.glass {
+            border-radius: 0;
+            border: none;
+        }
+
+        .glass, .glass-card {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.03) 100%
+            );
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 100%
+            );
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0.15) 100%
+            );
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic-container {
+            width: 260px;
+            height: 260px;
+            border-radius: 150px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 100%
+            );
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: 1.9rem auto 2.5rem auto;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+
+        .buttons-btn {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.60rem 1.5rem;
+            font-size: 0.800rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.1rem;
+            transition: all 0.7s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .buttons-btn:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0.15) 100%
+            );
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 640px) {
+            .buttons-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.800rem;
+            }
+        }
+
+        .certificate-simple-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .certificate-simple-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .certificate-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #22d3ee;
+            opacity: 0.85;
+            transition: color 0.4s ease;
+        }
+
+        .certificate-link {
+            margin-top: 0.5rem;
+            color: #22d3ee;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.4s ease;
+        }
+        
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: start;
+        }
+        
+        .project-card {
+            width: 100%;
+            max-width: 380px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.03) 100%
+            );
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image-container {
+            height: 140px;
+            overflow: hidden;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 16px;
+        }
+        
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .project-description {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .project-link {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(34, 211, 238, 0.1);
+            color: #22d3ee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-link i {
+            margin-right: 5px;
+            font-size: 0.7rem;
+        }
+        
+        .project-link:hover {
+            background: rgba(34, 211, 238, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="glass py-6 px-4 md:px-0 mb-6">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <h2 class="text-3xl md:text-1xl font-bold mb-2">Mostafa Subhani<i class="fas fa-chart-line"></i></h2>
+                </div>
+                
+                <div class="flex space-x-3 items-center">
+                    <div class="flex gap-3">
+                        <a href="mailto:mustafasubhani@duck.com" target="_blank" class="buttons-btn"><i class="fas fa-envelope mr-2"></i>Contact me</a>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/mostafasub" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/mspytho" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://medium.com/@mostafasub" target="_blank" class="social-icon"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <section class="py-8 px-4 md:px-0">
+            <div class="container mx-auto max-w-5xl">
+                <div class="glass p-7 mb-8">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col items-center">
+                            <div class="profile-pic-container glass-card">
+                                <img src="https://i.pinimg.com/736x/7f/7b/0c/7f7b0c9bf14ae9b769705a071dfb6dd0.jpg" class="profile-pic">
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-2xl font-bold mb-3 opacity-80">Hi There!</h2>
+                            <p class="mb-3 opacity-75">I'm Mostafa, a junior Data Analyst, driven by a passion for transforming data into insights.</p>
+                            <p class="mb-3 opacity-75">My journey into data didn't start in a classroom, It started with curiosity, what I have done was spend hours every day teaching myself how to analyze data, find patterns, visualize insights, and transform data into something impactful.</p>
+                            <p class="mb-3 opacity-75">I've developed my skills in Python, SQL, Excel, Tableau. Not just by following tutorials, but by working on projects.</p>
+                            <p class="mb-4 opacity-75">I strive to make a positive difference through data, wherever it's needed.</p>
+                            
+                            <a href="#projects" class="buttons-btn"><i class="fas fa-project-diagram mr-2"></i>View Projects</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="skills" class="mb-4">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
+                        <h2 class="text-2xl font-bold flex items-center">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1db8d0] to-[#1db8d0] px-2 py-1">My Data Skills</span>
+                        </h2>
+                        <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card p-4">
+                            <h4 class="text-lg font-semibold mb-3 text-center">Analysis Expertise</h4>
+                            <div class="chart-container">
+                                <canvas id="analysis-expertise"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4">
+                            <h4 class="text-lg font-semibold mb-3 text-center">Project Distribution</h4>
+                            <div class="chart-container">
+                                <canvas id="project-distribution"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-1 mb-8">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div class="glass-card certificate-simple-card">
+                            <i class="fas fa-graduation-cap certificate-icon"></i>
+                            <h3 class="font-bold text-center">Data Analytics</h3>
+                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                        
+                        <div class="glass-card certificate-simple-card">
+                            <i class="fas fa-database certificate-icon"></i>
+                            <h3 class="font-bold text-center">SQL</h3>
+                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                        
+                        <div class="glass-card certificate-simple-card">
+                            <i class="fa fa-pie-chart certificate-icon"></i>
+                            <h3 class="font-bold text-center">Power BI</h3>
+                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+
+                        <div class="glass-card certificate-simple-card">
+                            <i class="fab fa-python certificate-icon"></i>
+                            <h3 class="font-bold text-center">Python</h3>
+                            <a href="https://www.credly.com/badges/b12c8793-d757-4290-af92-97ac8aaf39e8/public_url" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="projects" class="mb-8 projects-container">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
+                        <h2 class="text-2xl font-bold flex items-center">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1db8d0] to-[#1db8d0] px-2 py-1">My Projects</span>
+                        </h2>
+                        <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card glass-card">
+                            <div class="project-image-container">
+                                <img src="images/Clinic-performance-analysis.png" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">
+                                    <span>Clinic Performance Analysis</span>
+                                </div>
+                                <p class="project-description">I conducted my first data analysis project using a clinic dataset. I identified peak appointment times, high-demand specialties, demographics...</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/mostafasub/Clinic-performance-analysis" target="_blank" class="project-link"><i class="fab fa-github"></i>Repository</a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-chart-bar"></i>Dashboard</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card glass-card">
+                            <div class="project-image-container">
+                                <img src="images/stackoverflow-posts.png" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">
+                                    <span>StackOverflow Posts Analysis</span>
+                                </div>
+                                <p class="project-description">This analysis shows StackOverflow's post count over the past five years from 2020 to 2025, and how it is falling because of AI.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/mostafasub/stackoverflow-posts" target="_blank" class="project-link"><i class="fab fa-github"></i>Repository</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass py-4 text-center">
+                    <p class="opacity-75">Have a project in mind? Reach me out: <a href="mailto:mustafasubhani@duck.com" target="_blank" style="color: #2ed6f0;" class="text-gray-100">mustafasubhani@duck.com</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const AnalysisCtx = document.getElementById('analysis-expertise').getContext('2d');
+        const AnalysisExpertiseChart = new Chart(AnalysisCtx, {
+            type: 'line',
+            data: {
+                labels: ['R', 'PowerBI', 'Tableau', 'Excel', 'Python', 'SQL'],
+                datasets: [{
+                    data: [34, 60, 53, 70, 81, 90],
+                    label: '',
+                    borderColor: 'rgba(79, 209, 197, 1)',
+                    backgroundColor: 'rgba(79, 209, 197, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        display: false,
+                        labels: {
+                            color: 'white'
+                        },
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        });
+        const ProjectDistributionCtx = document.getElementById('project-distribution').getContext('2d');
+        const ProjectDistributionChart = new Chart(ProjectDistributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cleaning', 'Analysis', 'Visualization', 'Reporting', 'Other'],
+                datasets: [{
+                    data: [35, 25, 25, 15, 5],
+                    backgroundColor: [
+                        'rgba(79, 209, 197, 0.8)',
+                        'rgba(66, 153, 225, 0.8)',
+                        'rgba(236, 72, 153, 0.8)', 
+                        'rgba(159, 122, 234, 0.8)', 
+                        'rgba(236, 201, 75, 0.8)' 
+                    ],
+                    borderColor: [
+                        'rgba(79, 209, 197, 1)',
+                        'rgba(66, 153, 225, 1)',
+                        'rgba(236, 72, 153, 1)', 
+                        'rgba(159, 122, 234, 1)',  
+                        'rgba(236, 201, 75, 1)' 
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                cutout: '53%'
+            }
+        });
+    </script>
+</body>
+</html>
