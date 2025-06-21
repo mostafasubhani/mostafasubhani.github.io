@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,18 +47,13 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+            transition: all 0.9s ease;
             position: relative;
             overflow: hidden;
         }
 
         .glass-card:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.05) 100%
-            );
+            transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
@@ -74,17 +70,14 @@
                 rgba(255, 255, 255, 0.1) 100%
             );
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s ease;
         }
 
         .social-icon:hover {
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.25) 0%,
-                rgba(255, 255, 255, 0.15) 100%
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.10) 100%
             );
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .profile-pic-container {
@@ -133,7 +126,6 @@
             display: inline-flex;
             align-items: center;
             margin-top: 0.1rem;
-            transition: all 0.7s ease;
             text-decoration: none;
             cursor: pointer;
         }
@@ -141,11 +133,9 @@
         .buttons-btn:hover {
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.25) 0%,
-                rgba(255, 255, 255, 0.15) 100%
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.10) 100%
             );
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
 
         @media (max-width: 640px) {
@@ -155,33 +145,22 @@
             }
         }
 
-        .certificate-simple-card {
+        .skills-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 1.5rem;
-            transition: all 0.4s ease;
+            transition: all 0.9s ease;
         }
 
-        .certificate-simple-card:hover {
+        .skills-card:hover {
             transform: translateY(-4px);
         }
 
-        .certificate-icon {
+        .skills-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #22d3ee;
-            opacity: 0.85;
-            transition: color 0.4s ease;
-        }
-
-        .certificate-link {
-            margin-top: 0.5rem;
-            color: #22d3ee;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            transition: color 0.4s ease;
         }
         
         .projects-container {
@@ -213,7 +192,6 @@
         }
         
         .project-card:hover {
-            transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
         
@@ -259,7 +237,7 @@
             padding: 4px 8px;
             border-radius: 4px;
             background: rgba(34, 211, 238, 0.1);
-            color: #22d3ee;
+            color: #ffffff9d;
             display: flex;
             align-items: center;
         }
@@ -302,7 +280,7 @@
                 <div class="glass p-7 mb-8">
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/3 flex flex-col items-center">
-                            <div class="profile-pic-container glass-card">
+                            <div class="profile-pic-container">
                                 <img src="https://i.pinimg.com/736x/7f/7b/0c/7f7b0c9bf14ae9b769705a071dfb6dd0.jpg" class="profile-pic">
                             </div>
                         </div>
@@ -322,16 +300,16 @@
                     <div class="flex items-center justify-center mb-8">
                         <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
                         <h2 class="text-2xl font-bold flex items-center">
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1db8d0] to-[#1db8d0] px-2 py-1">My Data Skills</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">My Data Skills</span>
                         </h2>
                         <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="glass-card p-4">
-                            <h4 class="text-lg font-semibold mb-3 text-center">Analysis Expertise</h4>
+                            <h4 class="text-lg font-semibold mb-3 text-center">Tool Expertise</h4>
                             <div class="chart-container">
-                                <canvas id="analysis-expertise"></canvas>
+                                <canvas id="tool-expertise"></canvas>
                             </div>
                         </div>
 
@@ -346,28 +324,24 @@
                 
                 <div class="p-1 mb-8">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        <div class="glass-card certificate-simple-card">
-                            <i class="fas fa-graduation-cap certificate-icon"></i>
-                            <h3 class="font-bold text-center">Data Analytics</h3>
-                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        <div class="glass-card skills-card">
+                            <i class="fas fa-chart-line skills-icon"></i> 
+                            <h3 class="font-bold text-center">Data Storytelling</h3>
                         </div>
-                        
-                        <div class="glass-card certificate-simple-card">
-                            <i class="fas fa-database certificate-icon"></i>
-                            <h3 class="font-bold text-center">SQL</h3>
-                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                        </div>
-                        
-                        <div class="glass-card certificate-simple-card">
-                            <i class="fa fa-pie-chart certificate-icon"></i>
-                            <h3 class="font-bold text-center">Power BI</h3>
-                            <a href="#" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                                                
+                        <div class="glass-card skills-card">
+                            <i class="fas fa-lightbulb skills-icon"></i>
+                            <h3 class="font-bold text-center">Problem Solving</h3>                       
                         </div>
 
-                        <div class="glass-card certificate-simple-card">
-                            <i class="fab fa-python certificate-icon"></i>
-                            <h3 class="font-bold text-center">Python</h3>
-                            <a href="https://www.credly.com/badges/b12c8793-d757-4290-af92-97ac8aaf39e8/public_url" class="certificate-link" target="_blank">Certificate<i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        <div class="glass-card skills-card">
+                            <i class="fas fa-question-circle skills-icon"></i>
+                            <h3 class="font-bold text-center">Critical Thinking</h3>                       
+                        </div>
+
+                        <div class="glass-card skills-card">
+                            <i class="fas fa-database skills-icon"></i>
+                            <h3 class="font-bold text-center">SQL DB Management</h3>
                         </div>
                     </div>
                 </div>
@@ -376,7 +350,7 @@
                     <div class="flex items-center justify-center mb-8">
                         <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
                         <h2 class="text-2xl font-bold flex items-center">
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1db8d0] to-[#1db8d0] px-2 py-1">My Projects</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">My Projects</span>
                         </h2>
                         <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
                     </div>
@@ -423,13 +397,13 @@
     </div>
 
     <script>
-        const AnalysisCtx = document.getElementById('analysis-expertise').getContext('2d');
-        const AnalysisExpertiseChart = new Chart(AnalysisCtx, {
+        const ToolsCtx = document.getElementById('tool-expertise').getContext('2d');
+        const ToolExpertiseChart = new Chart(ToolsCtx, {
             type: 'line',
             data: {
-                labels: ['R', 'PowerBI', 'Tableau', 'Excel', 'Python', 'SQL'],
+                labels: ['R', 'Tableau', 'PowerBI', 'Excel', 'Python', 'SQL'],
                 datasets: [{
-                    data: [34, 60, 53, 70, 81, 90],
+                    data: [30, 65, 55, 69, 81, 90],
                     label: '',
                     borderColor: 'rgba(79, 209, 197, 1)',
                     backgroundColor: 'rgba(79, 209, 197, 0.2)',
