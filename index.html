@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,7 @@
             background: linear-gradient(135deg, #0f2027 0%, #203a43f1 50%, #2c53644f 100%) fixed;
             min-height: 100vh;
             overflow-x: hidden;
-            color: white;
+            color: #ffffffc8;
             position: relative;
         }
 
@@ -95,7 +94,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            margin: 1.9rem auto 2.5rem auto;
+            margin: 2.0rem auto 2.5rem auto;
             position: relative;
         }
 
@@ -160,7 +159,7 @@
         .skills-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #22d3ee;
+            color: rgb(39, 187, 197);
         }
         
         .projects-container {
@@ -187,12 +186,7 @@
             -webkit-backdrop-filter: blur(25px);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-        }
-        
-        .project-card:hover {
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
         
         .project-image-container {
@@ -236,7 +230,7 @@
             font-size: 0.75rem;
             padding: 4px 8px;
             border-radius: 4px;
-            background: rgba(34, 211, 238, 0.1);
+            background: rgba(255, 255, 255, 0.1) 0%;
             color: #ffffff9d;
             display: flex;
             align-items: center;
@@ -248,7 +242,11 @@
         }
         
         .project-link:hover {
-            background: rgba(34, 211, 238, 0.2);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.10) 100%
+            ) 
         }
     </style>
 </head>
@@ -288,7 +286,7 @@
                             <h2 class="text-2xl font-bold mb-3 opacity-80">Hi There!</h2>
                             <p class="mb-3 opacity-75">I'm Mostafa, a junior Data Analyst, driven by a passion for transforming data into insights.</p>
                             <p class="mb-3 opacity-75">My journey into data didn't start in a classroom, It started with curiosity, what I have done was spend hours every day teaching myself how to analyze data, find patterns, visualize insights, and transform data into something impactful.</p>
-                            <p class="mb-3 opacity-75">I've developed my skills in Python, SQL, Excel, Tableau. Not just by following tutorials, but by working on projects.</p>
+                            <p class="mb-3 opacity-75">I've developed my skills in Python, SQL, Excel and BI tools. Not just by following tutorials, but by working on projects.</p>
                             <p class="mb-4 opacity-75">I strive to make a positive difference through data, wherever it's needed.</p>
                             
                             <a href="#projects" class="buttons-btn"><i class="fas fa-project-diagram mr-2"></i>View Projects</a>
@@ -356,7 +354,7 @@
                     </div>
                     
                     <div class="projects-grid">
-                        <div class="project-card glass-card">
+                        <div class="project-card">
                             <div class="project-image-container">
                                 <img src="images/Clinic-performance-analysis.png" class="project-image">
                             </div>
@@ -372,7 +370,7 @@
                             </div>
                         </div>
                         
-                        <div class="project-card glass-card">
+                        <div class="project-card">
                             <div class="project-image-container">
                                 <img src="images/stackoverflow-posts.png" class="project-image">
                             </div>
