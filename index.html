@@ -17,17 +17,11 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43f1 50%, #2c53644f 100%) fixed;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43f1 50%, #2c5364 100%) fixed;
             min-height: 100vh;
             overflow-x: hidden;
             color: #ffffffc8;
             position: relative;
-        }
-
-        @media only screen and (max-width: 768px) {
-            body {
-                background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) fixed;
-            }
         }
 
         header.glass {
@@ -52,7 +46,7 @@
         }
 
         .glass-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
@@ -65,23 +59,25 @@
             justify-content: center;
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 0%,
                 rgba(255, 255, 255, 0.1) 100%
             );
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.9s ease;
         }
 
         .social-icon:hover {
+            transform: translateY(-1px);
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.10) 100%
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 100%
             );
         }
 
         .profile-pic-container {
-            width: 260px;
-            height: 260px;
+            width: 270px;
+            height: 270px;
             border-radius: 150px;
             background: linear-gradient(
                 135deg,
@@ -94,7 +90,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            margin: 2.0rem auto 2.5rem auto;
+            margin: 1.0rem auto 0.5rem;
             position: relative;
         }
 
@@ -113,7 +109,7 @@
         .buttons-btn {
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 0%,
                 rgba(255, 255, 255, 0.1) 100%
             );
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -127,13 +123,15 @@
             margin-top: 0.1rem;
             text-decoration: none;
             cursor: pointer;
+            transition: all 1.1s ease;
         }
 
         .buttons-btn:hover {
+            transform: translateY(-1px);
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.10) 100%
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 100%
             );
         }
 
@@ -142,6 +140,7 @@
                 padding: 0.5rem 1rem;
                 font-size: 0.800rem;
             }
+            
         }
 
         .skills-card {
@@ -153,7 +152,7 @@
         }
 
         .skills-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
 
         .skills-icon {
@@ -188,7 +187,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             overflow: hidden;
         }
-        
+
         .project-image-container {
             height: 140px;
             overflow: hidden;
@@ -230,32 +229,36 @@
             font-size: 0.75rem;
             padding: 4px 8px;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1) 0%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
             color: #ffffff9d;
             display: flex;
             align-items: center;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
         }
         
         .project-link i {
             margin-right: 5px;
             font-size: 0.7rem;
         }
-        
-        .project-link:hover {
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.10) 100%
-            ) 
-        }
     </style>
 </head>
 <body>
-    <header class="glass py-6 px-4 md:px-0 mb-6">
-        <div class="container mx-auto max-w-5xl">
+    <header class="glass py-5 px-4 md:px-0 mb-2">
+        <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-4 md:mb-0 text-center md:text-left">
-                    <h2 class="text-3xl md:text-1xl font-bold mb-2">Mostafa Subhani<i class="fas fa-chart-line"></i></h2>
+                    <h2 class="text-3xl md:text-3xl font-awesome">Mostafa Subhani<i class="fas fa-chart-line"></i></h2>
                 </div>
                 
                 <div class="flex space-x-3 items-center">
@@ -273,21 +276,22 @@
     </header>
 
     <div>
-        <section class="py-8 px-4 md:px-0">
-            <div class="container mx-auto max-w-5xl">
-                <div class="glass p-7 mb-8">
-                    <div class="flex flex-col md:flex-row gap-8">
+        <section class="py-4 px-4 md:px-0">
+            <div class="container mx-auto max-w-6xl">
+                <div class="glass p-6 mb-8">
+                    <div class="flex flex-col md:flex-row gap-">
                         <div class="md:w-1/3 flex flex-col items-center">
                             <div class="profile-pic-container">
                                 <img src="https://i.pinimg.com/736x/7f/7b/0c/7f7b0c9bf14ae9b769705a071dfb6dd0.jpg" class="profile-pic">
+                                <!-- <img src="images/picture.png" class="profile-pic"> -->
                             </div>
                         </div>
                         <div class="md:w-2/3">
-                            <h2 class="text-2xl font-bold mb-3 opacity-80">Hi There!</h2>
+                            <h2 class="text-2xl font-bold mb-3 opacity-85">Hi There</h2>
                             <p class="mb-3 opacity-75">I'm Mostafa, a junior Data Analyst, driven by a passion for transforming data into insights.</p>
-                            <p class="mb-3 opacity-75">My journey into data didn't start in a classroom, It started with curiosity, what I have done was spend hours every day teaching myself how to analyze data, find patterns, visualize insights, and transform data into something impactful.</p>
-                            <p class="mb-3 opacity-75">I've developed my skills in Python, SQL, Excel and BI tools. Not just by following tutorials, but by working on projects.</p>
-                            <p class="mb-4 opacity-75">I strive to make a positive difference through data, wherever it's needed.</p>
+                            <p class="mb-3 opacity-75">My journey into data didn't start in a classroom or any platform. It started with curiosity, what I have done was spend hours every day teaching myself how to analyze data, find patterns, visualize insights, and transform data into something impactful.</p>
+                            <p class="mb-3 opacity-75">I've developed my skills in Python, SQL, Excel and BI tools, but not just by following tutorials, by working on datasets and real projects.</p>
+                            <p class="mb-3 opacity-75">Mission is to make a positive difference through data, wherever it's needed.</p>
                             
                             <a href="#projects" class="buttons-btn"><i class="fas fa-project-diagram mr-2"></i>View Projects</a>
                         </div>
@@ -298,7 +302,7 @@
                     <div class="flex items-center justify-center mb-8">
                         <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
                         <h2 class="text-2xl font-bold flex items-center">
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">My Data Skills</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">#Skills</span>
                         </h2>
                         <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
                     </div>
@@ -324,22 +328,22 @@
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         <div class="glass-card skills-card">
                             <i class="fas fa-chart-line skills-icon"></i> 
-                            <h3 class="font-bold text-center">Data Storytelling</h3>
+                            <h3 class="font-semibold text-center">Data Storytelling</h3>
                         </div>
                                                 
                         <div class="glass-card skills-card">
                             <i class="fas fa-lightbulb skills-icon"></i>
-                            <h3 class="font-bold text-center">Problem Solving</h3>                       
+                            <h3 class="font-semibold text-center">Problem Solving</h3>                       
                         </div>
 
                         <div class="glass-card skills-card">
                             <i class="fas fa-question-circle skills-icon"></i>
-                            <h3 class="font-bold text-center">Critical Thinking</h3>                       
+                            <h3 class="font-semibold text-center">Critical Thinking</h3>                       
                         </div>
 
                         <div class="glass-card skills-card">
                             <i class="fas fa-database skills-icon"></i>
-                            <h3 class="font-bold text-center">SQL DB Management</h3>
+                            <h3 class="font-semibold text-center">SQL DB Management</h3>
                         </div>
                     </div>
                 </div>
@@ -348,7 +352,7 @@
                     <div class="flex items-center justify-center mb-8">
                         <div class="border-t border-gray-400 flex-grow mr-4 opacity-50"></div>
                         <h2 class="text-2xl font-bold flex items-center">
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">My Projects</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffffc8] to-[#ffffffc8] px-2 py-1">#Projects</span>
                         </h2>
                         <div class="border-t border-gray-400 flex-grow ml-4 opacity-50"></div>
                     </div>
@@ -399,9 +403,9 @@
         const ToolExpertiseChart = new Chart(ToolsCtx, {
             type: 'line',
             data: {
-                labels: ['R', 'Tableau', 'PowerBI', 'Excel', 'Python', 'SQL'],
+                labels: ['Tableau', 'PowerBI', 'Excel', 'Python', 'SQL'],
                 datasets: [{
-                    data: [30, 65, 55, 69, 81, 90],
+                    data: [45, 70, 62, 77, 92],
                     label: '',
                     borderColor: 'rgba(79, 209, 197, 1)',
                     backgroundColor: 'rgba(79, 209, 197, 0.2)',
